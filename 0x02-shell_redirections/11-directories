@@ -1,0 +1,2 @@
+#!/bin/bash
+echo $(($(du --exclude="./.*" | wc -l) -1))
