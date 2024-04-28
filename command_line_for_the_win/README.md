@@ -1,7 +1,7 @@
 # Comman Line For The Win
 ## Command Line Tools
 This Project is designated as a practice for the shell command-line arguments, as a practice for the previously studied topics about shell scripts.<br><br>
-**Note:** These Screenshots are uploaded to the remote server using sftp and then added to the git repo.<br>
+**Note:**<br>These Screenshots are uploaded to the remote server using sftp and then added to the git repo.<br>
 ### Steps:
 - Generate the ssh key for the local machine.
 - Establish the SFTP session using the remote server data.
