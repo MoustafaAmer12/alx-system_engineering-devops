@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Displays contents in the directory after cutting the first part
-for i in `ls`
+for i in *
 do
-	echo $i | cut -d "-" --fields=2-
+	echo "$i" | cut -d "-" --fields=2-
 done
