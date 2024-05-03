@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Display the time until 12:59
+hr=0
+while [ $hr -le 12 ]
+do
+	min=1
+	echo "Hour: $hr"
+	while [ $min -lt 60 ]
+	do
+		echo "$min"
+		min=$((min+1))
+	done
+	hr=$((hr+1))
+done
