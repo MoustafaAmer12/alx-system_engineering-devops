@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 # Kills a process usin pkill
-pkill sleep
+kill "$(ps -x | pgrep -f to_infinity_and)" 
