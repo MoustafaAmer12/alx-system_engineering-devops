@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Kills a process usin pkill
+pkill sleep
