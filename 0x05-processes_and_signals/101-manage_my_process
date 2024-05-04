@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# An init script for the manage_my_process script
+start_service(){
+	./manage_my_process &
+	sudo sh -c "echo $$ >> /var/run/my_process.pid"
+}
+stop_service(){
+	sudo pkill -f /manage_my_process
+	sudo rm -rf "/var/run/my_process.pid"
+}
+restart_service(){
+	stop_service
+	start_service
+}
+
+case "$1" in
+	start)
+		start_service
+		echo "manage_my_process started"
+	;;
+	stop)
+		stop_service
+		echo "manage_my_process stopped"
+	;;
+	restart)
+		restart_service
+		echo "manage_my_process restarted"
+	;;
+	*)
+		echo "Usage: manage_my_process {start|stop|restart}"
+	;;
+esac
