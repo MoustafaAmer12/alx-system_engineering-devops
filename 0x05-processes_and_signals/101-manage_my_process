@@ -2,19 +2,23 @@
 # An init script for the manage_my_process script
 start_service(){
 	./manage_my_process &
-	echo $$ > /var/run/my_process.pid
+	echo $! > /var/run/my_process.pid
 }
 
 stop_service(){
-	kill "$(pgrep -f /manage_my_process)"
-	rm "/var/run/my_process.pid"
+	if [ -f /var/run/my_process.pid ]; then
+		kill "$(pgrep -f /manage_my_process)"
+		rm "/var/run/my_process.pid"
+	fi
 }
 
 restart_service(){
-	kill "$(pgrep -f /manage_my_process)"
-	rm "/var/rub/my_process.pid"
+	if [ -f /var/run/my_process.pid ]; then
+		kill "$(pgrep -f /manage_my_process)"
+		rm "/var/run/my_process.pid"
+	fi
 	./manage_my_process &
-	echo $$ > /var/run/my_process.pid
+	echo $! > /var/run/my_process.pid
 }
 
 case "$1" in
@@ -34,3 +38,4 @@ case "$1" in
 		echo "Usage: manage_my_process {start|stop|restart}"
 	;;
 esac
+exit 0
