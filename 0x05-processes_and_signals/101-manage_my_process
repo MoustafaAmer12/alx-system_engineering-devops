@@ -12,7 +12,7 @@ stop_service(){
 
 restart_service(){
 	kill "$(pgrep -f /manage_my_process)"
-	rm "/var/rub/my_process.pid"
+	rm "/var/run/my_process.pid"
 	./manage_my_process &
 	echo $$ > /var/run/my_process.pid
 }
