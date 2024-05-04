@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Reads lines from a file and displays onlys chosen delimeters
+array=[]
+while IFS= read -r line; do
+	echo "$line" | cut -d ':' --fields=1,3,6
+done < "/etc/passwd"
