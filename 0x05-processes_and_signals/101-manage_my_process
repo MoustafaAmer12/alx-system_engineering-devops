@@ -6,13 +6,17 @@ start_service(){
 }
 
 stop_service(){
-	kill "$(pgrep -f /manage_my_process)"
-	rm "/var/run/my_process.pid"
+	if [ -f /var/run/my_process.pid ]; then
+		kill "$(pgrep -f /manage_my_process)"
+		rm "/var/run/my_process.pid"
+	fi
 }
 
 restart_service(){
-	kill "$(pgrep -f /manage_my_process)"
-	rm "/var/run/my_process.pid"
+	if [ -f /var/run/my_process.pid ]; then
+		kill "$(pgrep -f /manage_my_process)"
+		rm "/var/run/my_process.pid"
+	fi
 	./manage_my_process &
 	echo $$ > /var/run/my_process.pid
 }
