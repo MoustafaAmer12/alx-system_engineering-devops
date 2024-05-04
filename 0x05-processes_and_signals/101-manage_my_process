@@ -2,11 +2,11 @@
 # An init script for the manage_my_process script
 start_service(){
 	./manage_my_process &
-	sudo sh -c "echo $$ > /var/run/my_process.pid"
+	echo $$ > /var/run/my_process.pid
 }
 stop_service(){
 	kill "$(pgrep -f /manage_my_process)"
-	sudo rm -rf "/var/run/my_process.pid"
+	rm "/var/run/my_process.pid"
 }
 restart_service(){
 	stop_service
