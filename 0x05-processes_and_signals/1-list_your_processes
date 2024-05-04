@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Prints the process status of currently processes
+top
