@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# This Script prints all listening ports in the system either TCP or UDP and the PID of programs using them.
+netstat -lp
